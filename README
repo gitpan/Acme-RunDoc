@@ -1,20 +1,18 @@
 NAME
-    Acme::RunDoc - executes a Microsoft Word document as if it were Perl
-    code
+    Acme::RunDoc - executes a Microsoft Word document as if it were Perl code
 
 SYNOPSIS
      Acme::RunDoc->do("helloworld.doc");
 
 DESCRIPTION
     It is recieved wisdom that word processors are better than text editors.
-    After all, you can style your documents with different fonts and
-    colours; you can take advantage of the built-in spell check; and your
-    ugly single and double quote characters get auto-replaced with "smart"
-    curly versions.
+    After all, you can style your documents with different fonts and colours;
+    you can take advantage of the built-in spell check; and your ugly single
+    and double quote characters get auto-replaced with "smart" curly versions.
 
-    This module allows you to run Perl documents edited in Microsoft Word
-    (and other word processors capable of saving in the ".doc" format) as
-    normal Perl code. You can write scripts and run them like this:
+    This module allows you to run Perl documents edited in Microsoft Word (and
+    other word processors capable of saving in the ".doc" format) as normal
+    Perl code. You can write scripts and run them like this:
 
       perl -Microsoft::Word helloworld.doc
 
@@ -41,43 +39,42 @@ DESCRIPTION
 
       use Acme::RunDoc "Hello::World" => ["greet"];
 
-  "do($file)"
-    This module provides a class method "do" which works in an analagous
-    method to Perl's built-in "do $file" function. In other words, it reads
-    the contents of the file, and executes it (via "eval").
+  `do($file)`
+    This module provides a class method `do` which works in an analagous
+    method to Perl's built-in `do $file` function. In other words, it reads
+    the contents of the file, and executes it (via `eval`).
 
-    Unlike Perl's built-in, it expects the Perl code to be in Microsoft
-    Word's "doc" format. Headers, footers, footnotes and annotations are
-    ignored. "Smart quotes" should be treated as their normal ASCII
-    equivalents.
+    Unlike Perl's built-in, it expects the Perl code to be in Microsoft Word's
+    "doc" format. Headers, footers, footnotes and annotations are ignored.
+    "Smart quotes" should be treated as their normal ASCII equivalents.
 
     It may take a file name or an open file handle. (The filehandle needs to
     be seekable - see IO::Seekable and IO::File.)
 
-  "require_file($file)"
-    This class method is analagous to Perl's built-in "require $file"
-    function. Performs a "do" on the given filename, but croaks if the file
+  `require_file($file)`
+    This class method is analagous to Perl's built-in `require $file`
+    function. Performs a `do` on the given filename, but croaks if the file
     returns false at the end.
 
-  "require($module)"
-    This class method is analagous to Perl's built-in "require Module"
+  `require($module)`
+    This class method is analagous to Perl's built-in `require Module`
     function.
 
     Unlike Perl's built-in, it expects Module::Foo to correspond to the file
     "Module/Foo.docm".
 
-  "use($module)"
-    This class method is analagous to Perl's built-in "use Module" function.
+  `use($module)`
+    This class method is analagous to Perl's built-in `use Module` function.
 
     Unlike Perl's built-in, this is not automatically executed at compile
-    time. You'll need to wrap it in a "BEGIN { ... }" block for that to
+    time. You'll need to wrap it in a `BEGIN { ... }` block for that to
     happen.
 
     Unlike Perl's built-in, there is no method for skipping the module's
-    "import" method. If you don't want to run "import", then just "require"
+    `import` method. If you don't want to run `import`, then just `require`
     the module.
 
-  "import($module1, \@args1, ...)"
+  `import($module1, \@args1, ...)`
     A handy shortcut for:
 
      BEGIN {
@@ -94,7 +91,7 @@ DESCRIPTION
          $module2  => \%args2,
          $module3  => undef;
 
-    (See the sections on "use", "import" and "require" in perlfunc if any of
+    (See the sections on `use`, `import` and `require` in perlfunc if any of
     that confuses you.)
 
 SEE ALSO
@@ -106,8 +103,8 @@ AUTHOR
 COPYRIGHT AND LICENCE
     This software is copyright (c) 2012 by Toby Inkster.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+    This is free software; you can redistribute it and/or modify it under the
+    same terms as the Perl 5 programming language system itself.
 
 DISCLAIMER OF WARRANTIES
     THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
